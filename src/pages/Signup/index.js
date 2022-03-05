@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth';
 
 import {
   Container,
@@ -18,10 +19,15 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [nome, setNome] = useState('');
+  const { signUp } = useContext(AuthContext);
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert('clicou')
+
+    if (nome !== '' && email !== '' && senha !== '') {
+      signUp(email, senha, nome)
+    }
+
   }
 
   return (
@@ -33,7 +39,7 @@ export default function Signup() {
           />
         </AreaLogo>
 
-        <AreaFormulario onSubmit={handleSubmit}>
+        <AreaFormulario>
           <Titulo>Cadastrar uma conta</Titulo>
           <Input
             type="text"
@@ -53,7 +59,7 @@ export default function Signup() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <Botao type="submit">Cadastrar</Botao>
+          <Botao type="submit" onClick={handleSubmit}>Cadastrar</Botao>
         </AreaFormulario>
 
         <Link style={{ margin: 20, color: '#000', cursor: 'pointer' }}

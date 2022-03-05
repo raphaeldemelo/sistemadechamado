@@ -32,7 +32,7 @@ export default function Signin() {
           />
         </AreaLogo>
 
-        <AreaFormulario onSubmit={handleSubmit}>
+        <AreaFormulario>
           <Titulo>Entrar</Titulo>
           <Input
             type="text"
@@ -46,7 +46,7 @@ export default function Signin() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <Botao type="submit">Acessar</Botao>
+          <Botao type="submit" onClick={handleSubmit}>Acessar</Botao>
         </AreaFormulario>
 
         <Link style={{ margin: 20, color: '#000', cursor: 'pointer' }}
