@@ -7,6 +7,7 @@ import {
     Texto,
     BotaoSair,
 } from './styles';
+import Header from '../../components/Header';
 
 export default function Dashboard() {
 
@@ -14,6 +15,7 @@ export default function Dashboard() {
 
     return (
         <Container>
+            <Header />
             <Texto>página dashboard</Texto>
             <BotaoSair onClick={() => signOut()}>
                 Sair
