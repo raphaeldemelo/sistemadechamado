@@ -19,7 +19,7 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [nome, setNome] = useState('');
-  const { signUp } = useContext(AuthContext);
+  const { signUp, loadingAuth } = useContext(AuthContext);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -27,7 +27,6 @@ export default function Signup() {
     if (nome !== '' && email !== '' && senha !== '') {
       signUp(email, senha, nome)
     }
-
   }
 
   return (
@@ -59,7 +58,7 @@ export default function Signup() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <Botao type="submit" onClick={handleSubmit}>Cadastrar</Botao>
+          <Botao type="submit" onClick={handleSubmit}>{loadingAuth ? 'Carregando...' : 'Cadastrar'}</Botao>
         </AreaFormulario>
 
         <Link style={{ margin: 20, color: '#000', cursor: 'pointer' }}

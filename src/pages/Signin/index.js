@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth';
 
 import {
   Container,
@@ -17,10 +18,13 @@ export default function Signin() {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const { signIn, loadingAuth } = useContext(AuthContext);
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
-    alert('clicou')
+    if (email !== '' && senha !== '') {
+      signIn(email, senha);
+    }
   }
 
   return (
@@ -46,7 +50,7 @@ export default function Signin() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <Botao type="submit" onClick={handleSubmit}>Acessar</Botao>
+          <Botao type="submit" onClick={handleSubmit}>{loadingAuth ? 'Carregando...' : 'Acessar'}</Botao>
         </AreaFormulario>
 
         <Link style={{ margin: 20, color: '#000', cursor: 'pointer' }}
