@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import firebase from '../services/firebaseConnection';
+import { toast } from 'react-toastify'
 
 export const AuthContext = createContext({});
 
@@ -41,11 +42,13 @@ export default function AuthProvider({ children }) {
                 setUser(data);
                 storageUser(data);
                 setLoadingAuth(false);
+                toast.success('Bem-vindo de volta!');
 
             })
             .catch((error) => {
                 console.error(error);
                 setLoadingAuth(false);
+                toast.error('ops...Algo deu errado!!!');
             })
     }
 
@@ -72,10 +75,12 @@ export default function AuthProvider({ children }) {
                         setUser(data);
                         storageUser(data);
                         setLoadingAuth(false);
+                        toast.success('Bem-vindo a plataforma');
                     })
             })
             .catch((error) => {
                 console.log(error);
+                toast.error('ops...Algo deu errado!!!');
                 setLoadingAuth(false);
             })
     }
@@ -90,6 +95,7 @@ export default function AuthProvider({ children }) {
         await firebase.auth().signOut();
         localStorage.removeItem('SistemaUser');
         setUser(null);
+        toast.success('Até breve!');
     }
 
     return (
@@ -102,7 +108,7 @@ export default function AuthProvider({ children }) {
                 signIn,
                 signUp,
                 signOut,
-                
+
             }}>
             {children}
         </AuthContext.Provider>
