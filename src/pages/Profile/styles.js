@@ -78,6 +78,8 @@ height: 250px;
 display: flex ;
 align-items: center;
 justify-content: center;
+border-radius: 50%;
+object-fit: cover;
 @media (min-width: 720px){
     margin-left: 310px;
 }

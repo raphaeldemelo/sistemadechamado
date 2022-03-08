@@ -108,7 +108,8 @@ export default function AuthProvider({ children }) {
                 signIn,
                 signUp,
                 signOut,
-
+                setUser,
+                storageUser,
             }}>
             {children}
         </AuthContext.Provider>

@@ -12,6 +12,7 @@ export default function Dashboard() {
         <Container>
             <Header />
             <Texto>Bem-vindo a página dashboard</Texto>
+
         </Container>
     );
 }
