@@ -25,6 +25,7 @@ export default function Header() {
                     src={user.avatarUrl === null ? avatar : user.avatarUrl} alt='foto do avatar'
                 />
                 <Nome>{user.nome}</Nome>
+                <Nome style={{ fontSize: 10, fontWeight: 'normal' }}>{user.email}</Nome>
             </HeaderProfile>
 
             <AreaBotao>
@@ -36,14 +37,14 @@ export default function Header() {
                 </Botao>
 
                 <Botao>
-                    <Link to='/dashboard'>
+                    <Link to='/clientes'>
                         <FaUserFriends size={25} style={{ marginRight: 10 }} />
                         Clientes
                     </Link>
                 </Botao>
 
                 <Botao>
-                    <Link to='/dashboard'>
+                    <Link to='/perfil'>
                         < RiSettings3Fill size={25} style={{ marginRight: 10 }} />
                         Configurações
                     </Link>
