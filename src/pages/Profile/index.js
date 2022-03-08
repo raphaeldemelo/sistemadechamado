@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { RiSettings3Fill } from 'react-icons/ri';
-import { FiCamera } from 'react-icons/fi';
 import {
     Container,
     Conteudo,
