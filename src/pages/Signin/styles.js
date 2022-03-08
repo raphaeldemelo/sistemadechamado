@@ -6,6 +6,13 @@ display:flex;
 align-items: center;
 justify-content: center;
 background-color: #121212;
+
+@media screen and (max-width: 720px){
+align-items: center;
+justify-content: center;
+padding: 10px;
+}
+
 `;
 
 export const AreaLogin = styled.div`
