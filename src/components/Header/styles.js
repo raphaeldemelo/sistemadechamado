@@ -4,7 +4,7 @@ export const Container = styled.div`
 margin: 0;
 padding: 0;
 width: 300px;
-background-color: #1A1A1A;
+background-color: #292929;
 position: fixed;
 height: 100%;
 overflow: auto;
@@ -45,8 +45,8 @@ display: block;
 margin: auto;
 width: 100px;
 height: 100px;
--webkit-filter: drop-shadow(2px 3px  6px #121212) ;
-filter: drop-shadow(2px 3px  6px #121212);
+-webkit-filter: drop-shadow(2px 3px  6px #222831) ;
+filter: drop-shadow(2px 3px  6px #222831);
 object-fit: cover;
 `;
 
@@ -54,6 +54,7 @@ export const AreaBotao = styled.div`
 margin-top: 15px;
 display:flex;
 flex-direction: column;
+background-color: #292929;
 
 @media screen and (max-width: 720px){
     padding: 10px;
@@ -67,17 +68,17 @@ flex-direction: column;
 export const Botao = styled.button`
 border: 0;
 width: 100%;
-background-color: #1a1a1a;
+background-color: #292929;
 a{
     color: rgba(255, 255, 255, 0.7);
     display: flex;
     align-items: center;
     padding: 10px;
     transition: ease-in-out .4s;
-    background-color: #1a1a1a;
+    background-color: #292929;
 }
 a:hover{
-    background-color: #151584;
+    background-color: #404040;
     color: #fff;
     border-radius: 10px;
 }
