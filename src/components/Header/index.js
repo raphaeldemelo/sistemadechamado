@@ -27,6 +27,7 @@ export default function Header() {
                 <Nome>{user.nome}</Nome>
             </HeaderProfile>
 
+            <AreaBotao>
                 <Botao>
                     <Link to='/dashboard'>
                         <FaHome size={25} style={{ marginRight: 10 }} />
@@ -47,6 +48,7 @@ export default function Header() {
                         Configurações
                     </Link>
                 </Botao>
+            </AreaBotao>
         </Container >
     );
 }

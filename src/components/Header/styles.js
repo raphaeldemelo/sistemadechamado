@@ -10,17 +10,12 @@ height: 100%;
 overflow: auto;
 align-items: center;
 display: inline-block;
-border-radius: 10px;
 
 @media screen and (max-width: 720px){
     width: 100%;
     height: auto;
     position: relative;
     
-    a{
-        float: left;
-    }
-
 }
 `;
 
@@ -33,8 +28,9 @@ justify-content: center;
 flex-direction: column;
 
 @media screen and (max-width: 720px){
-display: none;
-flex-direction: row;
+    display: none;
+    height: auto;
+    position: relative;
 }
 `;
 
@@ -57,6 +53,13 @@ export const AreaBotao = styled.div`
 display:flex;
 flex-direction: column;
 
+@media screen and (max-width: 720px){
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+}
 `;
 
 export const Botao = styled.button`
@@ -68,7 +71,6 @@ a{
     display: flex;
     align-items: center;
     padding: 10px;
-    flex-direction: row;
     transition: ease-in-out .4s;
     background-color: #1a1a1a;
 }
@@ -77,5 +79,13 @@ a:hover{
     color: #fff;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 320px){
+a{
+    font-size: 10px;
+    padding: 5px;
+}
+}
+
 `;
 
