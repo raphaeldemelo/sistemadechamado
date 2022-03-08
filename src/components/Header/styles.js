@@ -62,6 +62,9 @@ background-color: #292929;
     height: auto;
     position: relative;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 `;
 
@@ -69,6 +72,7 @@ export const Botao = styled.button`
 border: 0;
 width: 100%;
 background-color: #292929;
+
 a{
     color: rgba(255, 255, 255, 0.7);
     display: flex;
