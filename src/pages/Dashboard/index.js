@@ -16,10 +16,7 @@ export default function Dashboard() {
     return (
         <Container>
             <Header />
-            <Texto>página dashboard</Texto>
-            <BotaoSair onClick={() => signOut()}>
-                Sair
-            </BotaoSair>
+            <Texto>Bem-vindo a página dashboard</Texto>
         </Container>
     );
 }

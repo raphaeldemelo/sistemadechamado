@@ -14,8 +14,7 @@ display: inline-block;
 @media screen and (max-width: 720px){
     width: 100%;
     height: auto;
-    position: relative;
-    
+    position: relative; 
 }
 `;
 
@@ -51,10 +50,11 @@ object-fit: cover;
 `;
 
 export const AreaBotao = styled.div`
-margin-top: 15px;
+margin-top: 10px;
 display:flex;
 flex-direction: column;
 background-color: #292929;
+align-items: center;
 
 @media screen and (max-width: 720px){
     padding: 10px;
@@ -87,9 +87,9 @@ a:hover{
     border-radius: 10px;
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 375px){
 a{
-    font-size: 10px;
+    font-size: 12px;
     padding: 5px;
 }
 }
