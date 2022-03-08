@@ -26,6 +26,7 @@ display:flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
+margin-top: 50px;
 
 @media screen and (max-width: 720px){
     display: none;
@@ -50,6 +51,7 @@ object-fit: cover;
 `;
 
 export const AreaBotao = styled.div`
+margin-top: 15px;
 display:flex;
 flex-direction: column;
 
