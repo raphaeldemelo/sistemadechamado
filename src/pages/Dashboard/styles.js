@@ -24,6 +24,8 @@ margin-left: 310px;
 export const Texto = styled.h1`
 font-size: 1.3em;
 margin: 2em 0;
+padding-left: 10px;
+padding-right: 10px;
 `;
 
 export const Botao = styled.button`
@@ -31,8 +33,10 @@ background-color: red;
 border: 0;
 border-radius: 7px;
 padding: 10px;
+height: 45px;
 align-items: center;
 justify-content: center;
 display: flex;
 margin-bottom: 20px;
+
 `;
