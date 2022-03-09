@@ -87,10 +87,12 @@ a:hover{
     border-radius: 10px;
 }
 
-@media screen and (max-width: 375px){
+@media screen and (max-width: 720px){
 a{
     font-size: 12px;
     padding: 5px;
+    align-items: center;
+    justify-content: center;
 }
 }
 

@@ -29,23 +29,34 @@ export default function Header() {
             </HeaderProfile>
 
             <AreaBotao>
-                <Botao>
-                    <Link to='/dashboard'>
-                        <FaHome size={25} style={{ marginRight: 10 }} />
+                <Botao >
+                    <Link
+                        style={{ marginRight: 10, display: 'flex', flexDirection: 'row'}}
+                        to='/dashboard'>
+                        <FaHome size={20} color="#fff" style={{ marginRight: 10 }} />
                         Chamados
                     </Link>
                 </Botao>
 
-                <Botao>
-                    <Link to='/clientes'>
-                        <FaUserFriends size={25} style={{ marginRight: 10 }} />
+
+                <Botao >
+                    <Link
+                        style={{ marginRight: 10, display: 'flex', flexDirection: 'row'}}
+                        to='/clientes'>
+                        <FaUserFriends size={20} color="#fff" style={{ marginRight: 10 }} />
                         Clientes
                     </Link>
                 </Botao>
 
-                <Botao>
-                    <Link to='/perfil'>
-                        < RiSettings3Fill size={25} style={{ marginRight: 10 }} />
+                <Botao >
+                    <Link
+                        style={{
+                            marginRight: 10,
+                            display: 'flex',
+                            flexDirection: 'row',
+                        }}
+                        to='/perfil'>
+                        <RiSettings3Fill size={20} color="#fff" style={{ marginRight: 10 }} />
                         Perfil
                     </Link>
                 </Botao>

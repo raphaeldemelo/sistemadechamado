@@ -4,16 +4,27 @@ export const Container = styled.div`
 
 `;
 
-export const Texto = styled.h1`
-color: white;
+export const Conteudo = styled.div`
+
 `;
 
-export const BotaoSair = styled.button`
-border: 0;
-padding: 10px;
-width: 100px;
+export const AreaDashboard = styled.div`
+
+@media screen and (min-width: 720px){
+margin-left: 310px;
+}
+`;
+
+export const Texto = styled.h1`
+font-size: 12px;
+`;
+
+export const Botao = styled.button`
 background-color: red;
-color: white;
-font-weight: bold;
-border-radius: 10px;
+border: 0;
+border-radius: 7px;
+padding: 10px;
+align-items: center;
+justify-content: center;
+display: flex;
 `;
