@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Container,
@@ -14,6 +14,8 @@ import Title from '../../components/Title';
 
 export default function Dashboard() {
 
+    const [chamados, setChamados] = useState([]);
+
     return (
         <Container>
             <Header />
@@ -22,10 +24,26 @@ export default function Dashboard() {
                     <BsFillChatFill size={25} />
                 </Title>
 
-                <AreaDashboard>
-                    <Texto>Nenhum chamado registrado...</Texto>
 
-                    <Botao>
+                {chamados.length === 0 ? (
+
+                    <AreaDashboard>
+                        <Texto>Nenhum chamado registrado...</Texto>
+
+                        <Botao>
+                            <Link
+                                to='/novochamado'
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center'
+                                }}>
+                                <FiPlus size={15} color='#fff' style={{ marginRight: 10 }} />
+                                Novo Chamado
+                            </Link>
+                        </Botao>
+                    </AreaDashboard>
+                ) : (
+                    <>
                         <Link
                             to='/novochamado'
                             style={{
@@ -35,8 +53,10 @@ export default function Dashboard() {
                             <FiPlus size={15} color='#fff' style={{ marginRight: 10 }} />
                             Novo Chamado
                         </Link>
-                    </Botao>
-                </AreaDashboard>
+                    </>
+                )}
+
+
             </Conteudo>
 
         </Container >
