@@ -46,7 +46,7 @@ export default function Header() {
                 <Botao>
                     <Link to='/perfil'>
                         < RiSettings3Fill size={25} style={{ marginRight: 10 }} />
-                        Configurações
+                        Perfil
                     </Link>
                 </Botao>
             </AreaBotao>
