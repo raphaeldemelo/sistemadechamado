@@ -20,6 +20,11 @@ border-radius: 5px;
 margin-left: 310px;
 border-radius: 5px;
 }
+
+@media screen and (max-width: 720px){
+margin-left: 10px;
+margin-right: 10px;
+}
 `;
 
 export const Texto = styled.h1`
