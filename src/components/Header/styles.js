@@ -10,6 +10,7 @@ height: 100%;
 overflow: auto;
 align-items: center;
 display: inline-block;
+overflow: hidden;
 
 @media screen and (max-width: 720px){
     width: 100%;
@@ -106,5 +107,8 @@ align-items: center;
 color: #505050;
 font-weight: normal ;
 padding-left: 10px;
+
+@media screen and (max-width: 720px){
+display: none;
 `;
 
