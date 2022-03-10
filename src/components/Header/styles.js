@@ -50,11 +50,12 @@ object-fit: cover;
 `;
 
 export const AreaBotao = styled.div`
-margin-top: 10px;
+margin-top: 20px;
 display:flex;
 flex-direction: column;
 background-color: #292929;
-align-items: center;
+margin-left: 10px;
+
 
 @media screen and (max-width: 720px){
     padding: 10px;
@@ -96,5 +97,14 @@ a{
 }
 }
 
+`;
+
+export const Titulo = styled.h6`
+justify-content: flex-start;
+display: flex;
+align-items: center;
+color: #505050;
+font-weight: normal ;
+padding-left: 10px;
 `;
 

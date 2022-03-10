@@ -9,6 +9,7 @@ import {
     Imagem,
     AreaBotao,
     Botao,
+    Titulo,
 } from './styles';
 import { FaHome, FaUserFriends } from 'react-icons/fa'
 import { RiSettings3Fill } from 'react-icons/ri';
@@ -29,9 +30,10 @@ export default function Header() {
             </HeaderProfile>
 
             <AreaBotao>
+                <Titulo>Menu</Titulo>
                 <Botao >
                     <Link
-                        style={{ marginRight: 10, display: 'flex', flexDirection: 'row'}}
+                        style={{ marginRight: 10, display: 'flex', flexDirection: 'row' }}
                         to='/dashboard'>
                         <FaHome size={20} color="#fff" style={{ marginRight: 10 }} />
                         Chamados
@@ -41,7 +43,7 @@ export default function Header() {
 
                 <Botao >
                     <Link
-                        style={{ marginRight: 10, display: 'flex', flexDirection: 'row'}}
+                        style={{ marginRight: 10, display: 'flex', flexDirection: 'row' }}
                         to='/clientes'>
                         <FaUserFriends size={20} color="#fff" style={{ marginRight: 10 }} />
                         Clientes
