@@ -5,7 +5,8 @@ export const Container = styled.div`
 `;
 
 export const Conteudo = styled.div`
-
+display: flex;
+flex-direction: column;
 `;
 
 export const AreaDashboard = styled.div`

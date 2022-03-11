@@ -21,11 +21,11 @@ export default function Dashboard() {
     return (
         <Container>
             <Header />
-            <Conteudo>
-                <Title name='Atendimentos'>
-                    <BsFillChatFill size={25} />
-                </Title>
+            <Title name='Atendimentos'>
+                <BsFillChatFill size={25} />
+            </Title>
 
+            <Conteudo>
 
                 {chamados.length === 0 ? (
 
@@ -63,40 +63,40 @@ export default function Dashboard() {
                             </Link>
                         </Botao>
 
-                            <>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th scope='col'>Cliente</th>
-                                            <th scope='col'>Assunto</th>
-                                            <th scope='col'>Status</th>
-                                            <th scope='col'>Cadastrado</th>
-                                            <th scope='col'>#</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td data-label='Cliente'>Curso Sujeito</td>
-                                            <td data-label='Assunto'>Suporte</td>
-                                            <td data-label='Status'>
-                                                <span className='bagde' style={{ backgroundColor: '#5cb85c' }}>
-                                                    Em Aberto
-                                                </span>
-                                            </td>
-                                            <td data-label='Cadastrado'>22/06/2021</td>
-                                            <td data-label='#'>
-                                                <button className='action' style={{ backgroundColor: '#3583f6' }}>
-                                                    <FiSearch color='#fff' size={17} />
-                                                </button>
+                        <>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Cliente</th>
+                                        <th scope='col'>Assunto</th>
+                                        <th scope='col'>Status</th>
+                                        <th scope='col'>Cadastrado</th>
+                                        <th scope='col'>#</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label='Cliente'>Curso Sujeito</td>
+                                        <td data-label='Assunto'>Suporte</td>
+                                        <td data-label='Status'>
+                                            <span className='bagde' style={{ backgroundColor: '#5cb85c', borderRadius: 7, padding: 5 }}>
+                                                Em Aberto
+                                            </span>
+                                        </td>
+                                        <td data-label='Cadastrado'>22/06/2021</td>
+                                        <td data-label='#'>
+                                            <button className='action' style={{ backgroundColor: '#3583f6' }}>
+                                                <FiSearch color='#fff' size={17} />
+                                            </button>
 
-                                                <button className='action' style={{ backgroundColor: '#f6a935' }}>
-                                                    <FiEdit2 color='#fff' size={17} />
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </>
+                                            <button className='action' style={{ backgroundColor: '#f6a935' }}>
+                                                <FiEdit2 color='#fff' size={17} />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </>
                     </>
                 )}
 

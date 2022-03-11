@@ -4,6 +4,8 @@ table {
   margin-top: 100px;
   table-layout: auto;
   align-items: center;
+  width: 100%;
+ 
 }
 
 table caption {
@@ -97,6 +99,7 @@ table td .badge {
     border-bottom: 0;
   }
 }
+
 @media screen and (min-width: 1024px) {
   table {
     border: 0;
@@ -106,6 +109,7 @@ table td .badge {
   }
 }
 
+
 @media screen and (min-width: 721px) {
   table {
     border: 0;
@@ -114,10 +118,19 @@ table td .badge {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 736px) {
   table {
     border: 0;
     width: 58%;
+    table-layout: auto;
+    margin-left: 310px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  table {
+    border: 0;
+    width: 83%;
     table-layout: auto;
     margin-left: 310px;
   }
