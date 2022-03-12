@@ -20,6 +20,11 @@ margin-right:10px;
 export const AreaFormulario = styled.div`
 background-color: #292929;
 border-radius: 7px;
+display: flex;
+flex-direction: column;
+padding-left: 10%;
+padding-right: 10%;
+padding-bottom: 50px;
 `;
 
 export const Label = styled.h1`
@@ -96,16 +101,22 @@ padding: 10px;
 display: flex;
 width: 100%;
 margin-right: 10px;
-
+align-items: center;
+justify-content: center;
 
 `;
 
 export const AreaBotao = styled.div`
+margin-top: 20px;
 width: 100%;
 margin-right: 100px;
 
 @media screen and (max-width: 720px){
-width: 95%;
+width: 98%;
 margin-right: 10px;
 }
+`;
+
+export const TextoBotao = styled.h2`
+
 `;

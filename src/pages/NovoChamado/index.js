@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
     Container,
@@ -13,6 +13,7 @@ import {
     TextoArea,
     AreaBotao,
     Botao,
+    TextoBotao,
 } from './styles';
 
 import Header from '../../components/Header';
@@ -21,9 +22,25 @@ import { FiPlus } from 'react-icons/fi';
 
 export default function NovoChamado() {
 
+    const [assunto, setAssunto] = useState('Suporte');
+    const [status, setStatus] = useState('Aberto');
+    const [complemento, setComplemento] = useState('');
+
     function handleRegistrar(e) {
         e.preventDefault();
         alert('Registrou')
+    }
+
+    //chama quando troca o assunto
+    function handleChangeSelect(e) {
+        setAssunto(e.target.value);
+        console.log(e.target.value)
+    }
+
+    // chamado quando troca os status
+    function handleOptionChange(e) {
+        setStatus(e.target.value)
+        console.log(e.target.value)
     }
 
     return (
@@ -44,7 +61,7 @@ export default function NovoChamado() {
                     </Select>
 
                     <Label>Assunto</Label>
-                    <Select>
+                    <Select value={assunto} onChange={handleChangeSelect}>
                         <Option value={'Suporte'}>Suporte</Option>
                         <Option value={'Visita Tecnica'}>Visita Técnica</Option>
                         <Option value={'Financeiro'}>Financeiro</Option>
@@ -56,6 +73,8 @@ export default function NovoChamado() {
                             type="radio"
                             name='radio'
                             value='Aberto'
+                            onChange={handleOptionChange}
+                            checked={status === 'Aberto'}
                         />
                         <TextoStatus>Em Aberto</TextoStatus>
 
@@ -63,6 +82,8 @@ export default function NovoChamado() {
                             type="radio"
                             name='radio'
                             value='Progresso'
+                            onChange={handleOptionChange}
+                            checked={status === 'Progresso'}
                         />
                         <TextoStatus>Progresso</TextoStatus>
 
@@ -70,6 +91,8 @@ export default function NovoChamado() {
                             type="radio"
                             name='radio'
                             value='Atendido'
+                            onChange={handleOptionChange}
+                            checked={status === 'Atendido'}
                         />
                         <TextoStatus>Atendido</TextoStatus>
                     </AreaStatus>
@@ -79,11 +102,15 @@ export default function NovoChamado() {
                     <TextoArea
                         type='text'
                         placeholder="Descreva seu problema(opcional)"
+                        value={complemento}
+                        onchange={(e) => setComplemento(e.target.value)}
                     >
                     </TextoArea>
 
                     <AreaBotao>
-                        <Botao onClick={handleRegistrar}>Registrar</Botao>
+                        <Botao onClick={handleRegistrar}>
+                            <TextoBotao>Registrar</TextoBotao>
+                        </Botao>
                     </AreaBotao>
 
                 </AreaFormulario>
