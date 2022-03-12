@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import firebase from '../../services/firebaseConnection';
 
 import {
     Container,
@@ -15,6 +16,7 @@ import {
     Botao,
     TextoBotao,
 } from './styles';
+import { AuthContext } from '../../contexts/auth';
 
 import Header from '../../components/Header';
 import Title from '../../components/Title';
@@ -22,9 +24,49 @@ import { FiPlus } from 'react-icons/fi';
 
 export default function NovoChamado() {
 
+    const [clientes, setClientes] = useState([]);
+    const [carregaCliente, setCarregaCliente] = useState(true);
+    const [clienteSelecionado, setClienteSelecionado] = useState(0);
     const [assunto, setAssunto] = useState('Suporte');
     const [status, setStatus] = useState('Aberto');
     const [complemento, setComplemento] = useState('');
+
+    const { user } = useContext(AuthContext);
+
+    useEffect(() => {
+        async function loadCustomers() {
+            await firebase.firestore().collection('customers')
+                .get()
+                .then((snapshot) => {
+                    let lista = [];
+
+
+                    snapshot.forEach((doc) => {
+                        lista.push({
+                            id: doc.id,
+                            nomeFantasia: doc.data().nomeFantasia
+                        })
+                    })
+
+                    if (lista.length === 0) {
+                        console.log('nenhuma empresa encontrada');
+                        setClientes([{ id: '1', nomeFantasia: 'Freela' }])
+                        setCarregaCliente(false)
+                        return;
+                    }
+
+                    setClientes(lista);
+                    setCarregaCliente(false);
+                })
+                .catch((error) => {
+                    console.error('Deu alguma coisa errada!', error);
+                    setCarregaCliente(false);
+                    setClientes([{ id: '1', nomeFantasia: '' }])
+                })
+        }
+
+        loadCustomers();
+    }, [])
 
     function handleRegistrar(e) {
         e.preventDefault();
@@ -43,6 +85,13 @@ export default function NovoChamado() {
         console.log(e.target.value)
     }
 
+    //chama quando troca de cliente
+    function handleChangeClientes(e) {
+        console.log('Index do cliente selecionado', e.target.value);
+        console.log('Cliente selecionado', clientes[e.target.value])
+        setClienteSelecionado(e.target.value)
+    }
+
     return (
         <Container>
             <Header />
@@ -54,11 +103,26 @@ export default function NovoChamado() {
             <Conteudo>
                 <AreaFormulario>
                     <Label>Clientes</Label>
-                    <Select>
-                        <Option key={1} value={1}>
-                            Sujeito Programador
-                        </Option>
-                    </Select>
+
+                    {
+                        carregaCliente ?
+                            (
+                                <Input type="text" disabled value='Carregando clientes..' />
+                            ) :
+                            (
+                                <Select value={clienteSelecionado} onChange={handleChangeClientes}>
+                                    {clientes.map((item, index) => {
+                                        return (
+                                            <option key={item.id} value={index}>
+                                                {item.nomeFantasia}
+                                            </option>
+                                        )
+                                    })}
+                                </Select>
+                            )
+                    }
+
+
 
                     <Label>Assunto</Label>
                     <Select value={assunto} onChange={handleChangeSelect}>
