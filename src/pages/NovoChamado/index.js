@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import firebase from '../../services/firebaseConnection';
+import { toast } from 'react-toastify';
 
 import {
     Container,
@@ -68,9 +69,28 @@ export default function NovoChamado() {
         loadCustomers();
     }, [])
 
-    function handleRegistrar(e) {
+    async function handleRegistrar(e) {
         e.preventDefault();
-        alert('Registrou')
+
+        await firebase.firestore().collection('chamados')
+            .add({
+                created: new Date(),
+                cliente: clientes[clienteSelecionado].nomeFantasia,
+                clienteId: clientes[clienteSelecionado].id,
+                assunto: assunto,
+                status: status,
+                complemento: complemento,
+                userId: user.uid,
+            })
+            .then(() => {
+                toast.success('Chamado criado com sucesso!')
+                setComplemento('');
+                setClienteSelecionado(0);
+            })
+            .catch((error) => {
+                toast.error('ops... Erro ao registrar!');
+                console.error(error);
+            })
     }
 
     //chama quando troca o assunto
@@ -164,12 +184,11 @@ export default function NovoChamado() {
                     <Label>Complemento</Label>
 
                     <TextoArea
-                        type='text'
-                        placeholder="Descreva seu problema(opcional)"
+                        type="text"
+                        placeholder="Descreva seu problema (opcional)."
                         value={complemento}
-                        onchange={(e) => setComplemento(e.target.value)}
-                    >
-                    </TextoArea>
+                        onChange={(e) => setComplemento(e.target.value)}
+                    />
 
                     <AreaBotao>
                         <Botao onClick={handleRegistrar}>
