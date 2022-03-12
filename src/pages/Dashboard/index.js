@@ -82,6 +82,23 @@ export default function Dashboard() {
         }
     }, [])
 
+    if (loading) {
+        return (
+            <Container>
+                <Header />
+                <Title name='Atendimentos'>
+                    <BsFillChatFill size={25} />
+                </Title>
+
+                <AreaDashboard>
+                    <Texto>Buscando chamados...</Texto>
+                </AreaDashboard>
+            </Container>
+        )
+    }
+
+
+
 
 
     return (
@@ -141,25 +158,30 @@ export default function Dashboard() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td data-label='Cliente'>Curso Sujeito</td>
-                                        <td data-label='Assunto'>Suporte</td>
-                                        <td data-label='Status'>
-                                            <span className='bagde' style={{ backgroundColor: '#5cb85c', borderRadius: 7, padding: 5 }}>
-                                                Em Aberto
-                                            </span>
-                                        </td>
-                                        <td data-label='Cadastrado'>22/06/2021</td>
-                                        <td data-label='#'>
-                                            <button className='action' style={{ backgroundColor: '#3583f6' }}>
-                                                <FiSearch color='#fff' size={17} />
-                                            </button>
+                                    {chamados.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td data-label='Cliente'>{item.cliente}</td>
+                                                <td data-label='Assunto'>{item.assunto}</td>
+                                                <td data-label='Status'>
+                                                    <span className='bagde' style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : '#999', borderRadius: 7, padding: 5 }}>
+                                                        {item.status}
+                                                    </span>
+                                                </td>
+                                                <td data-label='Cadastrado'>{item.createdFormated}</td>
+                                                <td data-label='#'>
+                                                    <button className='action' style={{ backgroundColor: '#3583f6' }}>
+                                                        <FiSearch color='#fff' size={17} />
+                                                    </button>
 
-                                            <button className='action' style={{ backgroundColor: '#f6a935' }}>
-                                                <FiEdit2 color='#fff' size={17} />
-                                            </button>
-                                        </td>
-                                    </tr>
+                                                    <button className='action' style={{ backgroundColor: '#f6a935' }}>
+                                                        <FiEdit2 color='#fff' size={17} />
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
+
                                 </tbody>
                             </table>
                         </>
