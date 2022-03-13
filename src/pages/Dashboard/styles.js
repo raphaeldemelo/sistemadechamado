@@ -7,6 +7,7 @@ export const Container = styled.div`
 export const Conteudo = styled.div`
 display: flex;
 flex-direction: column;
+
 `;
 
 export const AreaDashboard = styled.div`
@@ -16,10 +17,12 @@ align-items: center;
 flex-direction: column;
 background-color: #292929;
 border-radius: 5px;
+margin-left: 10px;
 
 @media screen and (min-width: 720px){
 margin-left: 310px;
 border-radius: 5px;
+
 }
 `;
 
@@ -42,5 +45,6 @@ display: flex;
 margin-bottom: 20px;
 margin-left: 310px;
 margin: 10px;
+margin-top: 20px;
 
 `;

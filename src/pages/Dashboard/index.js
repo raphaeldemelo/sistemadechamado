@@ -123,7 +123,7 @@ export default function Dashboard() {
                         </Botao>
                     </AreaDashboard>
                 ) : (
-                    <AreaDashboard style={{padding: 30}}>
+                    <AreaDashboard style={{ padding: 0, marginRight: 10 }}>
                         <Botao>
                             <Link
                                 to='/novochamado'
@@ -137,7 +137,7 @@ export default function Dashboard() {
                         </Botao>
 
 
-                        <table style={{ margin: 0 }}>
+                        <table style={{ marginLeft: 20 }}> 
                             <thead>
                                 <tr>
                                     <th scope='col'>Cliente</th>
