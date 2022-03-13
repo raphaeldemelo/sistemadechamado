@@ -40,10 +40,7 @@ align-items: center;
 justify-content: center;
 display: flex;
 margin-bottom: 20px;
-transition: ease-in  0.2s;
-
-:hover{
-    transform:scale(1.1) ;
-}
+margin-left: 310px;
+margin: 10px;
 
 `;

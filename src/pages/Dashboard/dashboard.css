@@ -5,6 +5,7 @@ table {
   table-layout: auto;
   align-items: center;
   width: 100%;
+  padding: 10px;
  
 }
 
@@ -16,9 +17,10 @@ table caption {
 
 table tr {
   background-color: #202020;
-  border: 1px solid #ddd;
+  border: 1px solid #292929;
   padding: 0.35em;
   margin-right: 20px;
+  border-radius: 10px;
 }
 
 table th,
@@ -52,7 +54,7 @@ table td .badge {
   color: #fff;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 722px) {
   table {
     border: 0;
     width: 100%;
@@ -100,12 +102,26 @@ table td .badge {
   }
 }
 
+
 @media screen and (min-width: 1024px) {
   table {
     border: 0;
     width: 20%;
     table-layout: auto;
     margin-left: 310px;
+    padding: 10px;
+  }
+}
+
+
+@media screen and (min-width: 736px) {
+  table {
+    border: 0;
+    width: 50%;
+    table-layout: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
   }
 }
 
@@ -115,25 +131,22 @@ table td .badge {
     border: 0;
     width: 83%;
     margin-left: 310px;
+    padding: 10px;
   }
 }
 
-@media screen and (min-width: 736px) {
-  table {
-    border: 0;
-    width: 58%;
-    table-layout: auto;
-    margin-left: 310px;
-  }
-}
 
 @media screen and (min-width: 1920px) {
   table {
     border: 0;
-    width: 83%;
+    width: 70%;
     table-layout: auto;
     margin-left: 310px;
+    padding: 10px;
   }
 }
+
+
+
 
 

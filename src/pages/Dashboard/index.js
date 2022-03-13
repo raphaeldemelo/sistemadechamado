@@ -97,22 +97,17 @@ export default function Dashboard() {
         )
     }
 
-
-
-
-
     return (
         <Container>
             <Header />
             <Title name='Atendimentos'>
                 <BsFillChatFill size={25} />
             </Title>
-
             <Conteudo>
 
                 {chamados.length === 0 ? (
-
                     <AreaDashboard>
+
                         <Texto>Nenhum chamado registrado...</Texto>
 
                         <Botao>
@@ -128,13 +123,8 @@ export default function Dashboard() {
                         </Botao>
                     </AreaDashboard>
                 ) : (
-                    <>
-                        <Botao
-                            style={{
-                                position: 'absolute',
-                                right: 10,
-                                marginTop: 20,
-                            }}>
+                    <AreaDashboard style={{padding: 30}}>
+                        <Botao>
                             <Link
                                 to='/novochamado'
                                 style={{
@@ -146,51 +136,47 @@ export default function Dashboard() {
                             </Link>
                         </Botao>
 
-                        <>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th scope='col'>Cliente</th>
-                                        <th scope='col'>Assunto</th>
-                                        <th scope='col'>Status</th>
-                                        <th scope='col'>Cadastrado</th>
-                                        <th scope='col'>#</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {chamados.map((item, index) => {
-                                        return (
-                                            <tr key={index}>
-                                                <td data-label='Cliente'>{item.cliente}</td>
-                                                <td data-label='Assunto'>{item.assunto}</td>
-                                                <td data-label='Status'>
-                                                    <span className='bagde' style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : '#999', borderRadius: 7, padding: 5 }}>
-                                                        {item.status}
-                                                    </span>
-                                                </td>
-                                                <td data-label='Cadastrado'>{item.createdFormated}</td>
-                                                <td data-label='#'>
-                                                    <button className='action' style={{ backgroundColor: '#3583f6' }}>
-                                                        <FiSearch color='#fff' size={17} />
-                                                    </button>
 
-                                                    <button className='action' style={{ backgroundColor: '#f6a935' }}>
-                                                        <FiEdit2 color='#fff' size={17} />
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        )
-                                    })}
+                        <table style={{ margin: 0 }}>
+                            <thead>
+                                <tr>
+                                    <th scope='col'>Cliente</th>
+                                    <th scope='col'>Assunto</th>
+                                    <th scope='col'>Status</th>
+                                    <th scope='col'>Cadastrado</th>
+                                    <th scope='col'>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {chamados.map((item, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td data-label='Cliente'>{item.cliente}</td>
+                                            <td data-label='Assunto'>{item.assunto}</td>
+                                            <td data-label='Status'>
+                                                <span className='bagde' style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : '#999', borderRadius: 7, padding: 5 }}>
+                                                    {item.status}
+                                                </span>
+                                            </td>
+                                            <td data-label='Cadastrado'>{item.createdFormated}</td>
+                                            <td data-label='#'>
+                                                <button className='action' style={{ backgroundColor: '#3583f6' }}>
+                                                    <FiSearch color='#fff' size={17} />
+                                                </button>
 
-                                </tbody>
-                            </table>
-                        </>
-                    </>
+                                                <button className='action' style={{ backgroundColor: '#f6a935' }}>
+                                                    <FiEdit2 color='#fff' size={17} />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
+
+                            </tbody>
+                        </table>
+                    </AreaDashboard>
                 )}
-
-
             </Conteudo>
-
         </Container >
     );
 }
