@@ -1,7 +1,7 @@
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
-  margin-top: 100px;
+  margin-top: 10px;
   table-layout: auto;
   align-items: center;
   width: 100%;
@@ -13,6 +13,7 @@ table caption {
   font-size: 1.5em;
   margin: 0.5em 0 50 0.75em;
   margin-right: 20px;
+  border-radius: 10px;
 }
 
 table tr {
@@ -27,12 +28,15 @@ table th,
 table td {
   padding: 0.62em;
   text-align: center;
+  
+  
 }
 
 table th {
   font-size: 0.85em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  
 }
 
 table td .action {
@@ -60,6 +64,7 @@ table td .badge {
     width: 100%;
     table-layout: auto;
     margin-left: 10px;
+    border-radius: 10px;
   }
 
   table caption {
@@ -78,13 +83,13 @@ table td .badge {
   }
 
   table tr {
-    border-bottom: 3px solid #ddd;
+    border-bottom: 3px solid #202020;
     display: block;
     margin-bottom: 0.65em;
   }
 
   table td {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #292929;
     display: block;
     font-size: 0.8em;
     text-align: right;
@@ -110,6 +115,7 @@ table td .badge {
     table-layout: auto;
     margin-left: 310px;
     padding: 10px;
+    border-radius: 10px;
   }
 }
 
@@ -122,6 +128,7 @@ table td .badge {
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
+    border-radius: 10px;
   }
 }
 
@@ -132,6 +139,7 @@ table td .badge {
     width: 83%;
     margin-left: 310px;
     padding: 10px;
+    border-radius: 10px;
   }
 }
 
@@ -143,6 +151,7 @@ table td .badge {
     table-layout: auto;
     margin-left: 310px;
     padding: 10px;
+    border-radius: 10px;
   }
 }
 
