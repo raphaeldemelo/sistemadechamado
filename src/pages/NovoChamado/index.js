@@ -22,6 +22,7 @@ import { AuthContext } from '../../contexts/auth';
 import Header from '../../components/Header';
 import Title from '../../components/Title';
 import { FiPlus } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 export default function NovoChamado() {
 
@@ -91,6 +92,8 @@ export default function NovoChamado() {
                 toast.error('ops... Erro ao registrar!');
                 console.error(error);
             })
+
+
     }
 
     //chama quando troca o assunto
@@ -192,7 +195,9 @@ export default function NovoChamado() {
 
                     <AreaBotao>
                         <Botao onClick={handleRegistrar}>
-                            <TextoBotao>Registrar</TextoBotao>
+                            <Link to='/dashboard'>
+                                <TextoBotao>Registrar</TextoBotao>
+                            </Link>
                         </Botao>
                     </AreaBotao>
 

@@ -82,6 +82,15 @@ export default function Dashboard() {
         }
     }, [])
 
+    async function handleMore() {
+        setLoadingMore(true);
+        await listRef.startAfter(lastDocs).limit(5).get()
+            .then((snapshot) => {
+                updateState(snapshot);
+            })
+    }
+
+
     if (loading) {
         return (
             <Container>
@@ -123,7 +132,7 @@ export default function Dashboard() {
                         </Botao>
                     </AreaDashboard>
                 ) : (
-                    <AreaDashboard style={{ padding: 0, marginRight: 10 }}>
+                    <AreaDashboard style={{ paddingBottom: 20, marginRight: 10 }}>
                         <Botao>
                             <Link
                                 to='/novochamado'
@@ -137,7 +146,7 @@ export default function Dashboard() {
                         </Botao>
 
 
-                        <table style={{ marginLeft: 20 }}> 
+                        <table style={{ marginLeft: 20 }}>
                             <thead>
                                 <tr>
                                     <th scope='col'>Cliente</th>
@@ -174,6 +183,17 @@ export default function Dashboard() {
 
                             </tbody>
                         </table>
+
+                        {loadingMore && <Texto>Buscando chamados...</Texto>}
+
+                        {!loadingMore && !isEmpty &&
+                            < Botao
+                                style={{ color: '#fff', fontWeight: 'bold' }}
+                                onClick={() => { handleMore() }}>
+                                Buscar mais
+                            </Botao>
+                        }
+
                     </AreaDashboard>
                 )}
             </Conteudo>

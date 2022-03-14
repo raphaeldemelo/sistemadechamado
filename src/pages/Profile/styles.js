@@ -110,5 +110,4 @@ background-color: #181c2e;
 color: #fff;
 font-weight: bold;
 font-size: 18px;
-
 `;
