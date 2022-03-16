@@ -15,7 +15,8 @@ import { FiPlus, FiSearch, FiEdit2 } from 'react-icons/fi';
 import Header from '../../components/Header';
 import Title from '../../components/Title';
 import { toast } from 'react-toastify';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+import Modal from '../../components/Modal';
 
 export default function Dashboard() {
 
@@ -28,19 +29,31 @@ export default function Dashboard() {
     const [lastDocs, setLastDocs] = useState();
 
 
-    async function carregaChamados() {
-        await listRef.limit(5)
-            .get()
-            .then((snapshot) => {
-                updateState(snapshot)
-            })
-            .catch((error) => {
-                toast.error('algo deu errado!', error)
-                setLoadingMore(false);
-            })
+    const [showPostModal, setShowPostModal] = useState(false);
+    const [detalhe, setDetalhe] = useState();
 
-        setLoading(false)
-    }
+    useEffect(() => {
+
+        async function carregaChamados() {
+            await listRef.limit(5)
+                .get()
+                .then((snapshot) => {
+                    updateState(snapshot)
+                })
+                .catch((error) => {
+                    toast.error('algo deu errado!', error)
+                    setLoadingMore(false);
+                })
+
+            setLoading(false)
+        }
+
+        carregaChamados();
+
+        return () => {
+
+        }
+    }, []);
 
     async function updateState(snapshot) {
         const isCollectionEmpty = snapshot.size === 0;
@@ -73,14 +86,7 @@ export default function Dashboard() {
         setLoadingMore(false);
     }
 
-    useEffect(() => {
 
-        carregaChamados();
-
-        return () => {
-
-        }
-    }, [])
 
     async function handleMore() {
         setLoadingMore(true);
@@ -88,6 +94,11 @@ export default function Dashboard() {
             .then((snapshot) => {
                 updateState(snapshot);
             })
+    }
+
+    function togglePostModal(item) {
+        setShowPostModal(!showPostModal) //trocando de true pra false
+        setDetalhe(item);
     }
 
 
@@ -163,13 +174,11 @@ export default function Dashboard() {
                                             <td data-label='Cliente'>{item.cliente}</td>
                                             <td data-label='Assunto'>{item.assunto}</td>
                                             <td data-label='Status'>
-                                                <span className='bagde' style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : '#999', borderRadius: 7, padding: 5 }}>
-                                                    {item.status}
-                                                </span>
+                                                    <span className="badge" style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : '#999', borderRadius: 7, padding: 5 }}>{item.status}</span>
                                             </td>
                                             <td data-label='Cadastrado'>{item.createdFormated}</td>
                                             <td data-label='#'>
-                                                <button className='action' style={{ backgroundColor: '#3583f6' }}>
+                                                <button className='action' style={{ backgroundColor: '#3583f6' }} onClick={() => togglePostModal(item)}>
                                                     <FiSearch color='#fff' size={17} />
                                                 </button>
 
@@ -197,6 +206,14 @@ export default function Dashboard() {
                     </AreaDashboard>
                 )}
             </Conteudo>
+
+            {showPostModal && (
+                <Modal
+                    conteudo={detalhe}
+                    close={togglePostModal}
+                />
+            )}
+
         </Container >
     );
 }
