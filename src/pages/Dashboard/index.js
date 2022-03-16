@@ -8,7 +8,6 @@ import {
     AreaDashboard,
     Texto,
     Botao,
-    AreaTabela,
 } from './styles';
 import { BsFillChatFill } from 'react-icons/bs';
 import { FiPlus, FiSearch, FiEdit2 } from 'react-icons/fi';
@@ -174,17 +173,20 @@ export default function Dashboard() {
                                             <td data-label='Cliente'>{item.cliente}</td>
                                             <td data-label='Assunto'>{item.assunto}</td>
                                             <td data-label='Status'>
-                                                    <span className="badge" style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : '#999', borderRadius: 7, padding: 5 }}>{item.status}</span>
+
+                                                <span className="badge" style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : '#999', borderRadius: 7, padding: 5 }}>{item.status}</span>
                                             </td>
                                             <td data-label='Cadastrado'>{item.createdFormated}</td>
                                             <td data-label='#'>
-                                                <button className='action' style={{ backgroundColor: '#3583f6' }} onClick={() => togglePostModal(item)}>
+                                                <Link className='action' style={{ backgroundColor: '#3583f6' }} onClick={() => togglePostModal(item)}>
                                                     <FiSearch color='#fff' size={17} />
-                                                </button>
+                                                </Link>
 
-                                                <button className='action' style={{ backgroundColor: '#f6a935' }}>
+                                                <Link className='action' style={{ backgroundColor: '#f6a935' }}
+                                                    to={`/novochamado/${item.id}`}
+                                                >
                                                     <FiEdit2 color='#fff' size={17} />
-                                                </button>
+                                                </Link>
                                             </td>
                                         </tr>
                                     )
